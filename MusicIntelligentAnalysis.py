@@ -30,3 +30,4 @@ main()
 #c = fft(b) # calculate fourier transform (complex numbers list)
 #d = len(c)/2  # you only need half of the fft list (real signal symmetry)
 
+# whgahdgnafdkng
