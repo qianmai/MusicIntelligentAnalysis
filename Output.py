@@ -22,6 +22,9 @@ def Plot_Output(timeDomain):
     #Fourier
     plt.subplot(4, 1, 4)
     plt.plot()
+    
+    ##Text
+    #plt.text(2, 4,"A test string", fontsize=50)
 
     plt.show()
 
