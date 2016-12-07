@@ -1,17 +1,10 @@
 from scipy.io import wavfile
-import numpy
-from socket import socket
+import numpy as np
+from scipy.fftpack import fft
 
-fileName3 = 'music/happy_piano.wav'
-
-def Transform(signal):
-    fs, data = wavfile.read(fileName3) # load the data
-
-    channel_1 = data.T[0] # this is a two channel soundtrack
-
-    b=[]
-    for ele in range(channel_1):
-        b.append((ele/2**8.)*2-1) # this is 8-bit track, b is now normalized on [-1,1)
-    c = numpy.fft(b) # calculate fourier transform (complex numbers list)
-    d = len(c)/2  # you only need half of the fft list (real signal symmetry)
-    return abs(c[:(d-1)])
+def Transform(signal, N):
+    T = 1.0 / 800.0
+    x = np.linspace(0.0, N*T, N)
+    yf = fft(signal)
+    xf = np.linspace(0.0, 1.0/(2.0*T), N/2)
+    return np.abs(yf[0:N/2])
