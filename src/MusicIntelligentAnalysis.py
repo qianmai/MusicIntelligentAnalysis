@@ -5,10 +5,11 @@ import Output
 
 fileName1 = 'music/scout_1000.wav'
 fileName2 = 'music/music_test.wav'
+fileName3 = 'music/happy_piano.wav'
 
 def main():
     #Signal
-    wavFile = wave.open(fileName2, 'r')
+    wavFile = wave.open(fileName3, 'r')
     signal = wavFile.readframes(-1)
     timeDomain = np.fromstring(signal, 'Int16')
     
