@@ -15,13 +15,23 @@ def Plot_Output(timeDomain):
     plt.subplot(4, 1, 2)
     plt.plot()
 
-    #Channel 2
+    #specgram
     plt.subplot(4, 1, 3)
     plt.plot()
+    #Pxx, freqs, bins, im = plt.specgram(
+    #    timeDomain, 
+    #    NFFT=timeDomain, 
+    #    Fs=timeDomain, 
+    #    noverlap=900,
+    #    cmap=plt.cm.gist_heat
+    #)
 
     #Fourier
     plt.subplot(4, 1, 4)
     plt.plot()
+    
+    ##Text
+    #plt.text(2, 4,"A test string", fontsize=50)
 
     plt.show()
 
