@@ -5,7 +5,7 @@ import numpy as np
 import wave
 import sys
 
-def Plot_Output(timeDomain):
+def Plot_Output(timeDomain, frequencyDomain):
     #Signal
     plt.subplot(4, 1, 1)
     plt.title('Music Analysis', fontsize=40)
@@ -13,7 +13,7 @@ def Plot_Output(timeDomain):
 
     #Channel 1
     plt.subplot(4, 1, 2)
-    plt.plot()
+    plt.plot(frequencyDomain)
 
     #specgram
     plt.subplot(4, 1, 3)
