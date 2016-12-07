@@ -47,3 +47,5 @@ Temporary Items
 .apdisk
 *.pyc
 MusicIntelligentAnalysis.pyproj
+
+src/Output.py

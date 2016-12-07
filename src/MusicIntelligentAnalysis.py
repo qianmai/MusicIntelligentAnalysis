@@ -1,24 +1,24 @@
-from scipy.io import wavfile
 import wave
 import numpy as np
 import Output
-import Segmentation
+import FourierTransform as ft
 
-fileName1 = '../music/happy_piano.wav'
-fileName2 = '../music/music_test.wav'
+fileName1 = 'music/scout_1000.wav'
+fileName2 = 'music/music_test.wav'
+fileName3 = 'music/happy_piano.wav'
 
 def main():
-    #Signal
-    wavFile = wave.open(fileName1, 'r')
+    #Time Domain
+    wavFile = wave.open(fileName3, 'r')
     signal = wavFile.readframes(-1)
     timeDomain = np.fromstring(signal, 'Int16')
     
-    # Added by Kun Li.
-    timeDomain = Segmentation.make_segment(timeDomain, 1000, 1500)
-    
+    #Frequency Domain
+    #frequencyDomain = ft.Transform(timeDomain)
+    frequencyDomain = timeDomain
 
     #Output
-    Output.Plot_Output(timeDomain)
+    Output.Plot_Output(timeDomain, frequencyDomain)
 
 main()
 
@@ -32,8 +32,3 @@ main()
 #    b.append((ele/2**8.)*2-1) # this is 8-bit track, b is now normalized on [-1,1)
 #c = fft(b) # calculate fourier transform (complex numbers list)
 #d = len(c)/2  # you only need half of the fft list (real signal symmetry)
-
-#another change
-# whgahdgnafdkng
-
-#we are gona change qqqq
