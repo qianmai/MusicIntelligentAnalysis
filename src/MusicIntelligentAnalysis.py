@@ -2,16 +2,19 @@ from scipy.io import wavfile
 import wave
 import numpy as np
 import Output
+import Segmentation
 
-fileName1 = 'music/scout_1000.wav'
-fileName2 = 'music/music_test.wav'
+fileName1 = '../music/happy_piano.wav'
+fileName2 = '../music/music_test.wav'
 
 def main():
     #Signal
-    wavFile = wave.open(fileName2, 'r')
+    wavFile = wave.open(fileName1, 'r')
     signal = wavFile.readframes(-1)
     timeDomain = np.fromstring(signal, 'Int16')
     
+    # Added by Kun Li.
+    timeDomain = Segmentation.make_segment(timeDomain, 1000, 1500)
     
 
     #Output
