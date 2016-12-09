@@ -34,6 +34,3 @@ def Plot_Output(timeDomain, frequencyDomain):
     #plt.text(2, 4,"A test string", fontsize=50)
 
     plt.show()
-
-
-#Change1 KunLi
