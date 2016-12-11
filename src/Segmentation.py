@@ -17,7 +17,7 @@ def get_segment_pairs(rawdata, downLimit, continueLength):
             if(element > downLimit):
                 highNumberCount += 1
                 #Start Recording
-                if(highNumberCount > 10):
+                if(highNumberCount > 40):
                     head = max(i-continueLength, previousTail)
                     isBegin = True
                     lowNummberCount = 0
