@@ -38,7 +38,11 @@ def get_segment_pairs(rawdata, downLimit, continueLength):
             else:
                 lowNummberCount = 0
         i += 1
-    
+
+    if(len(list) == 0):
+        pair = (head, i - 1)
+        list.append(pair)
+
     return list
 
 #Get the head and tail of a segment
