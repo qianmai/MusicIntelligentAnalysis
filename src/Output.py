@@ -4,6 +4,28 @@ from scipy.io import wavfile
 import numpy as np
 import wave
 import sys
+import Segmentation
+import FourierTransform as ft
+
+def multi_Output(timeDomain, timePointList, indexList):
+    td = []
+    fd = []
+    i = 0
+    for index in indexList:
+        #Head and Tail
+        head, tail = Segmentation.split_pair_from_list_by_index(timePointList, indexList[i])
+        #Segment Time Domain
+        segmentTimeDomain = Segmentation.make_segment(timeDomain, head, tail)
+        td.append(segmentTimeDomain)
+        #Frequency Domain
+        frequencyDomain = ft.Transform(segmentTimeDomain, 2000)
+        fd.append(frequencyDomain)
+        
+        i += 1
+
+    #output
+    #Plot_Output(timeDomain, td[0], td[1], td[2], td[3])
+    Plot_Output(timeDomain, fd[0], fd[1], fd[2], fd[3])
 
 def Plot_Output(timeDomain, segmentTimeDomain, frequencyDomain, backup_1, backup_2):
     #Entire Music
