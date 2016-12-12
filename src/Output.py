@@ -7,6 +7,13 @@ import sys
 import Segmentation
 import FourierTransform as ft
 
+def single_Output(dataSource, xmin, xmax):
+    plt.figure(2)
+    plt.plot(dataSource)
+    axes = plt.gca()
+    axes.set_xlim([xmin,xmax])
+    #plt.show()
+
 def multi_Output(timeDomain, timePointList, indexList):
     td = []
     fd = []
@@ -18,16 +25,22 @@ def multi_Output(timeDomain, timePointList, indexList):
         segmentTimeDomain = Segmentation.make_segment(timeDomain, head, tail)
         td.append(segmentTimeDomain)
         #Frequency Domain
-        frequencyDomain = ft.Transform(segmentTimeDomain, 2000)
+        frequencyDomain = ft.Transform(segmentTimeDomain, 1000)
         fd.append(frequencyDomain)
         
         i += 1
 
     #output
     #Plot_Output(timeDomain, td[0], td[1], td[2], td[3])
+    #Plot_Output(timeDomain, fd[0], fd[1], fd[2], fd[3])
+
+    dataSource, xmin, xmax = Segmentation.get_peak_pattern(fd[1], 0.1)
+    #single_Output(dataSource, xmin, xmax)
+    single_Output(fd[1], xmin, xmax)
     Plot_Output(timeDomain, fd[0], fd[1], fd[2], fd[3])
 
 def Plot_Output(timeDomain, segmentTimeDomain, frequencyDomain, backup_1, backup_2):
+    plt.figure(1)
     #Entire Music
     plt.subplot(5, 1, 1)
     plt.title('Music Analysis', fontsize=40)
