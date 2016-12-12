@@ -6,32 +6,27 @@ import Segmentation
 import FourierTransform as ft
 import heapq
 
-#fileName1 = '../music/scout_1000.wav'
 fileName1 = 'music/scout_1000.wav'
 fileName2 = 'music/music_test.wav'
 fileName3 = 'music/happy_piano.wav'
-fileName4 = 'music/guitar.wav'
+guitar = 'dataset/guitar/6.wav'
+piano ='dataset/piano/c3.wav'
 
 def main():
     #Signal
-    wavFile = wave.open(fileName4, 'r')
+    wavFile = wave.open(fileName3, 'r')
     signal = wavFile.readframes(-1)
     timeDomain = np.fromstring(signal, 'Int16')
     
     #Get Key Time List
     timePointList = Segmentation.get_segment_pairs(timeDomain, 1000, 800)
-    test = len(timePointList)
-    Output.multi_Output(timeDomain, timePointList, [0, 1, 2, 3])
+    #test = len(timePointList)
+    #Output.multi_Output(timeDomain, timePointList, [0, 1, 2, 3])
 
     # Added by Kun Li.
-    #segmentTimeDomain = Segmentation.make_segment(timeDomain, head, tail)
-    
-    #Frequency Domain
-    #frequencyDomain = ft.Transform(segmentTimeDomain, 2000)
-
-    #Output
-    #Output.Plot_Output(timeDomain, segmentTimeDomain, frequencyDomain, None, None)
-    
-    
+    head, tail = Segmentation.split_pair_from_list_by_index(timePointList, 0)
+    segmentTimeDomain = Segmentation.make_segment(timeDomain, head, tail)
+    xf, segmentFrequencyDomain = ft.Transform(segmentTimeDomain, 600)
+    Output.DrawGraphs(timeDomain, xf, segmentFrequencyDomain)
 
 main()
