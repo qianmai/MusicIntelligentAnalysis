@@ -1,4 +1,3 @@
-from scipy.io import wavfile
 import numpy as np
 from scipy.fftpack import fft
 import matplotlib.pyplot as plt

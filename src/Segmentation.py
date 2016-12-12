@@ -1,5 +1,4 @@
-# Created by Kun Li.
-# 12/2016
+import numpy as np
 
 #Find all segment key time from a music
 def get_segment_pairs(rawdata, downLimit, continueLength):
@@ -38,10 +37,11 @@ def get_segment_pairs(rawdata, downLimit, continueLength):
             else:
                 lowNummberCount = 0
         i += 1
-    
+
     if(len(list) == 0):
-        pair = (0, i)
+        pair = (head, i - 1)
         list.append(pair)
+
     return list
 
 #Get the head and tail of a segment
@@ -59,3 +59,44 @@ def make_segment(rawdata, fr, to):
         i += 1
         
     return segment
+
+#Get Peak Pattern
+def get_peak_pattern(frequencyDomain, limitPercentage ):
+    peakValue = max(frequencyDomain)
+    limit = peakValue * limitPercentage
+    lowNummberCount = 0
+    peakIndex = np.argmax(frequencyDomain)
+    head = 0
+    tail = len(frequencyDomain) - 1
+    lowNummberCount = 0
+    foundHead = False
+    foundTail = False
+
+    #Get head by searching leftward
+    i = peakIndex
+    while((not foundHead) and (i > 0)):
+        if(frequencyDomain[i] < limit):
+            lowNummberCount += 1
+            if(lowNummberCount > 20):
+                head = i
+                foundHead = True
+                lowNummberCount = 0
+        else:
+            lowNummberCount = 0
+        i -= 1
+    
+    #Get tail by searching rightward
+    i = peakIndex
+    lowNummberCount = 0
+    while((not foundTail) and (i < len(frequencyDomain) - 1)):
+        if(frequencyDomain[i] < limit):
+            lowNummberCount += 1
+            if(lowNummberCount > 10):
+                tail = i
+                foundTail = True
+        else:
+            lowNummberCount = 0
+        i += 1
+    
+    return make_segment(frequencyDomain, head, tail), head, tail
+    
