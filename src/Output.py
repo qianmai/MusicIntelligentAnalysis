@@ -44,6 +44,9 @@ def Plot_Output(timeDomain, segmentTimeDomain, frequencyDomain, backup_1, backup
     #Entire Music
     plt.subplot(5, 1, 1)
     plt.title('Music Analysis', fontsize=40)
+    plt.subplot(2, 1, 1)
+    plt.ylabel('Time Domain')
+    plt.grid(True)
     plt.plot(timeDomain)
 
     #Signal

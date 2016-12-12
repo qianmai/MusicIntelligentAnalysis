@@ -6,11 +6,11 @@ import Segmentation
 import FourierTransform as ft
 import heapq
 
-fileName1 = 'music/scout_1000.wav'
-fileName2 = 'music/music_test.wav'
-fileName3 = 'music/happy_piano.wav'
-guitar = 'dataset/guitar/6.wav'
-piano ='dataset/piano/c3.wav'
+fileName1 = '../music/scout_1000.wav'
+fileName2 = '../music/music_test.wav'
+fileName3 = '../music/happy_piano.wav'
+guitar = '../dataset/guitar/6.wav'
+piano ='../dataset/piano/c3.wav'
 
 def main():
     #Signal
