@@ -12,7 +12,7 @@ def single_Output(dataSource, xmin, xmax):
     plt.plot(dataSource)
     axes = plt.gca()
     axes.set_xlim([xmin,xmax])
-    #plt.show()
+    plt.show()
 
 def multi_Output(timeDomain, timePointList, indexList):
     td = []
@@ -101,4 +101,4 @@ def DrawGraphs(timeDomain, xf, frequencyDomain):
     plt.grid(True)
     plt.plot(xf, frequencyDomain, 'r-')
     
-    plt.show()
+    #plt.show()
