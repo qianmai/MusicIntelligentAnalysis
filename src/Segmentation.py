@@ -77,7 +77,7 @@ def get_peak_pattern(frequencyDomain, limitPercentage ):
     while((not foundHead) and (i > 0)):
         if(frequencyDomain[i] < limit):
             lowNummberCount += 1
-            if(lowNummberCount > 20):
+            if(lowNummberCount > 10):
                 head = i
                 foundHead = True
                 lowNummberCount = 0
