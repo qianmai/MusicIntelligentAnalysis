@@ -60,6 +60,20 @@ def make_segment(rawdata, fr, to):
         
     return segment
 
+#Get a segment of a frequency in frequency range
+def make_frequency_segment(rawdata, fr, to):
+    segment = []
+    i = 0
+    for data in rawdata:
+        if i <= to:
+            if i >= fr:
+                segment.append(data)
+            else:
+                segment.append(0)
+        i += 1
+        
+    return segment
+
 #Get Peak Pattern
 def get_peak_pattern(frequencyDomain, limitPercentage ):
     peakValue = max(frequencyDomain)
@@ -77,7 +91,7 @@ def get_peak_pattern(frequencyDomain, limitPercentage ):
     while((not foundHead) and (i > 0)):
         if(frequencyDomain[i] < limit):
             lowNummberCount += 1
-            if(lowNummberCount > 20):
+            if(lowNummberCount > 10):
                 head = i
                 foundHead = True
                 lowNummberCount = 0
@@ -98,5 +112,6 @@ def get_peak_pattern(frequencyDomain, limitPercentage ):
             lowNummberCount = 0
         i += 1
     
-    return make_segment(frequencyDomain, head, tail), head, tail
+    #return make_segment(frequencyDomain, head, tail), head, tail
+    return make_frequency_segment(frequencyDomain, head, tail), head, tail
     
