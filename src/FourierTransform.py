@@ -17,6 +17,6 @@ def Transform(s, N):
     #for i in range(int(L)):
     #    yf.append(y[int(i / r)])
     
-    xf = np.linspace(0.0, L, L)
+    xf = np.linspace(0.0, L, int(L))
     
-    return xf, np.abs(y[0:L])
+    return xf, np.abs(y[0:int(L)])
