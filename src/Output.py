@@ -11,10 +11,12 @@ def single_Output(dataSource, xmin, xmax):
     plt.figure(2)
     plt.plot(dataSource)
     axes = plt.gca()
-    axes.set_xlim([xmin,xmax])
-    #axes.set_xlim([0,xmax - xmin])
+    #axes.set_xlim([xmin,xmax])
+    axes.set_xlim([0,xmax - xmin])
+    axes.set_axis_off()
+    SaveImage(plt)
     plt.show()
-
+    
 def multi_Output(timeDomain, timePointList, indexList):
     td = []
     fd = []
@@ -92,3 +94,7 @@ def DrawGraphs(timeDomain, xf, frequencyDomain):
     plt.plot(xf, frequencyDomain, 'r-')
     
     #plt.show()
+
+def SaveImage(plot):
+    fig = plot.gcf()
+    fig.savefig('waveform.png', dpi = 100)
