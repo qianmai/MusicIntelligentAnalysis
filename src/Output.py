@@ -12,6 +12,7 @@ def single_Output(dataSource, xmin, xmax):
     plt.plot(dataSource)
     axes = plt.gca()
     axes.set_xlim([xmin,xmax])
+    #axes.set_xlim([0,xmax - xmin])
     plt.show()
 
 def multi_Output(timeDomain, timePointList, indexList):
@@ -64,23 +65,12 @@ def Plot_Output(timeDomain, segmentTimeDomain, frequencyDomain, backup_1, backup
     else:
         plt.plot(backup_1)
 
-    #Pxx, freqs, bins, im = plt.specgram(
-    #    timeDomain, 
-    #    NFFT=timeDomain, 
-    #    Fs=timeDomain, 
-    #    noverlap=900,
-    #    cmap=plt.cm.gist_heat
-    #)
-
     #Backup
     plt.subplot(5, 1, 5)
     if(backup_2 is None):
         plt.plot()
     else:
         plt.plot(backup_2)
-    
-    ##Text
-    #plt.text(2, 4,"A test string", fontsize=50)
 
     plt.show()
 
