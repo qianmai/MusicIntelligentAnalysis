@@ -30,6 +30,6 @@ def main():
     #Output.DrawGraphs(timeDomain, xf, segmentFrequencyDomain)
 
     dataSource, xmin, xmax = Segmentation.get_peak_pattern(segmentFrequencyDomain, 0.1)
-    Output.single_Output(dataSource, 0, xmax)
+    Output.single_Output(dataSource, xmin, xmax)
 
 main()
