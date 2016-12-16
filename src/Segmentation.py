@@ -112,6 +112,6 @@ def get_peak_pattern(frequencyDomain, limitPercentage ):
             lowNummberCount = 0
         i += 1
     
-    #return make_segment(frequencyDomain, head, tail), head, tail
-    return make_frequency_segment(frequencyDomain, head, tail), head, tail
+    return make_segment(frequencyDomain, head, tail), head, tail
+    #return make_frequency_segment(frequencyDomain, head, tail), head, tail
     
