@@ -9,10 +9,15 @@ import FourierTransform as ft
 
 def single_Output(dataSource, xmin, xmax):
     plt.figure(2)
+    
+    x = np.arange(len(dataSource))
+    y = dataSource
     plt.plot(dataSource)
+    #plt.scatter(x, y, c = range(len(x)))
+    
     axes = plt.gca()
     #axes.set_xlim([xmin,xmax])
-    axes.set_xlim([0,xmax - xmin])
+    #axes.set_xlim([0,xmax - xmin])
     axes.set_axis_off()
     SaveImage(plt)
     plt.show()
@@ -97,4 +102,4 @@ def DrawGraphs(timeDomain, xf, frequencyDomain):
 
 def SaveImage(plot):
     fig = plot.gcf()
-    fig.savefig('waveform.png', dpi = 100)
+    fig.savefig('save.png', dpi = 100)
