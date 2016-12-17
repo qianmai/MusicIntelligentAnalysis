@@ -43,15 +43,15 @@ def convertListToTwoDimentional(mylist):
 
 def readImageAsGray(imageFile):
     img = cv2.imread(imageFile)
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gry = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     #cv2.imwrite('save.png', img)
     #cv2.imshow("save", img);
-    return img
+    return gry
 
 def readImageAsColor(imageFile):
     img = cv2.imread(imageFile)
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    return img
+    return hsv
     
 def computeHistogram(img1, img2):
     hist1 = cv2.calcHist([img1], [0], None, [256], [0,256])
@@ -132,17 +132,18 @@ def compare_histograms(hist1, hist2, title):
 	Output.SaveImage(plt)
 	plt.show()
 
-#def main():
-#    #img1 = readImageAsGray('pic1.png')
-#    #img2 = readImageAsGray('pic2.png')
-#    img1 = readImageAsColor('pic1.png')
-#    img2 = readImageAsColor('pic2.png')
+'''
+def main():
+    #img1 = readImageAsGray('pia1.png')
+    #img2 = readImageAsGray('pia2.png')
+    img1 = readImageAsColor('pia1.png')
+    img2 = readImageAsColor('pia2.png')
 
-#    hist1, hist2 = computeHistogram(img1, img2)
-#    #hist1, hist2 = computeColorHSVHistogram(img1, img2)
-#    compare_images(img1, img2, 'Images Comparison')
-#    #compare_histograms(hist1, hist2, 'Histogram Comparison')
+    hist1, hist2 = computeHistogram(img1, img2)
+    #hist1, hist2 = computeColorHSVHistogram(img1, img2)
+    compare_images(img1, img2, 'Images Comparison')
+    #compare_histograms(hist1, hist2, 'Histogram Comparison')
 
-#main()
-
+main()
+'''
     
