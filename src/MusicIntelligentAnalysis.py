@@ -10,12 +10,12 @@ import imageProcess as ip
 fileName1 = '../music/scout_1000.wav'
 fileName2 = '../music/music_test.wav'
 fileName3 = '../music/happy_piano.wav'
-guitar = '../dataset/guitar/6.wav'
-piano ='../dataset/piano/c6.wav'
+guitar = '../music/elements/guitar/6.wav'
+piano ='../music/elements/piano/c1m.wav'
 
 def main():
     #Signal
-    wavFile = wave.open(guitar, 'r')
+    wavFile = wave.open(piano, 'r')
     signal = wavFile.readframes(-1)
     timeDomain = np.fromstring(signal, 'Int16')
     
