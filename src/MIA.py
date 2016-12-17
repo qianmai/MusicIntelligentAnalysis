@@ -5,17 +5,18 @@ import Output
 import Segmentation
 import FourierTransform as ft
 import heapq
-import imageProcess as ip
+import ImageProcess as ip
 
 fileName1 = '../music/scout_1000.wav'
 fileName2 = '../music/music_test.wav'
 fileName3 = '../music/happy_piano.wav'
-guitar = '../music/elements/guitar/6.wav'
+music = '../music/guitar.wav'
+guitar = '../music/elements/guitar/5.wav'
 piano ='../music/elements/piano/c1m.wav'
 
 def main():
     #Signal
-    wavFile = wave.open(piano, 'r')
+    wavFile = wave.open(music, 'r')
     signal = wavFile.readframes(-1)
     timeDomain = np.fromstring(signal, 'Int16')
     
