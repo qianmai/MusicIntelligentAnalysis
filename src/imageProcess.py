@@ -132,17 +132,17 @@ def compare_histograms(hist1, hist2, title):
 	Output.SaveImage(plt)
 	plt.show()
 
-def main():
-    #img1 = readImageAsGray('pic1.png')
-    #img2 = readImageAsGray('pic2.png')
-    img1 = readImageAsColor('pic1.png')
-    img2 = readImageAsColor('pic2.png')
+#def main():
+#    #img1 = readImageAsGray('pic1.png')
+#    #img2 = readImageAsGray('pic2.png')
+#    img1 = readImageAsColor('pic1.png')
+#    img2 = readImageAsColor('pic2.png')
 
-    hist1, hist2 = computeHistogram(img1, img2)
-    #hist1, hist2 = computeColorHSVHistogram(img1, img2)
-    compare_images(img1, img2, 'Images Comparison')
-    #compare_histograms(hist1, hist2, 'Histogram Comparison')
+#    hist1, hist2 = computeHistogram(img1, img2)
+#    #hist1, hist2 = computeColorHSVHistogram(img1, img2)
+#    compare_images(img1, img2, 'Images Comparison')
+#    #compare_histograms(hist1, hist2, 'Histogram Comparison')
 
-main()
+#main()
 
     
